@@ -284,6 +284,11 @@ scrape_configs:
     static_configs:
       - targets: ['nagios.measurementlab.net:9267']
 
+  # Scrape config for the github exporter.
+  #
+  - job_name: 'github-exporter'
+    static_configs:
+      - targets: ['http://github-exporter.mlab-sandbox.measurementlab.net:9171']
 
   # Scrape config for the snmp_exporter. There is one snmp_exporter service
   # running in a Docker container on a GCE VM in each GCP project.
