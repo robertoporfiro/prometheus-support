@@ -1,9 +1,3 @@
-# A ServiceAccount for the external-dns service.
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: external-dns
----
 # A ClusterRole allowing external-dns to watch for new services and ingresses 
 # with domains to add to the zone.
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -27,6 +21,12 @@ rules:
   - get
   - list
   - watch
+---
+# A ServiceAccount for the external-dns service.
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: external-dns
 ---
 # Binding the external-dns ClusterRole to the ServiceAccount above.
 apiVersion: rbac.authorization.k8s.io/v1beta1
