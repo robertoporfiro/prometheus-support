@@ -1086,7 +1086,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "-avg(rate(annotator_Annotation_Lookups_total{service=\"annotator\"}[5m]))",
+          "expr": "-sum(rate(annotator_Annotation_Lookups_total{service=\"annotator\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -1096,7 +1096,7 @@
           "step": 20
         },
         {
-          "expr": "avg by (service)(rate(annotator_Annotation_Lookups_total{service!=\"annotator\"}[5m]))",
+          "expr": "sum by (service)(rate(annotator_Annotation_Lookups_total{service!=\"annotator\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
