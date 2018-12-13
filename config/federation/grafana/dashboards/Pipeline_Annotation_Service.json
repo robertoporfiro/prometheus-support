@@ -1,8 +1,8 @@
+
 {
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:2678",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": false,
@@ -22,8 +22,8 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
-      "fill": 1,
+      "datasource": "$datasource",
+      "fill": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
@@ -48,7 +48,6 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -58,13 +57,30 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "Quantile: {{quantile}}, Instance {{instance}}",
+          "legendFormat": "Q: {{quantile}} {{instance}}",
           "metric": "annotator_Request_Response_Time_Summary",
           "refId": "A",
           "step": 20
         }
       ],
-      "thresholds": [],
+      "thresholds": [
+        {
+          "colorMode": "warning",
+          "fill": false,
+          "line": true,
+          "op": "gt",
+          "value": 1000000000,
+          "yaxis": "left"
+        },
+        {
+          "colorMode": "critical",
+          "fill": true,
+          "line": true,
+          "op": "gt",
+          "value": 2000000000,
+          "yaxis": "left"
+        }
+      ],
       "timeFrom": null,
       "timeShift": null,
       "title": "Internal Time to Serve Requests",
@@ -85,9 +101,8 @@
         {
           "format": "ns",
           "label": "Time",
-          "logBase": 1,
-          "max": null,
-          "min": "0",
+          "logBase": 10,
+          "min": "50000",
           "show": true
         },
         {
@@ -109,7 +124,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
       "description": "Means should be under 1 msec, and 99th percentiles should be under 1 second.",
       "fill": 1,
       "gridPos": {
@@ -208,7 +223,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
       "fill": 1,
       "gridPos": {
         "h": 6,
@@ -253,12 +268,13 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Mean Response Time",
+      "title": "Mean External Client Response Time",
       "tooltip": {
         "shared": true,
         "sort": 1,
         "value_type": "individual"
       },
+      "transparent": true,
       "type": "graph",
       "xaxis": {
         "buckets": null,
@@ -295,7 +311,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
       "fill": 1,
       "gridPos": {
         "h": 6,
@@ -328,6 +344,7 @@
       "targets": [
         {
           "expr": "sum by(source)(increase(etl_annotator_Error_Count[$interval]))",
+          "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{source}}",
@@ -381,7 +398,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
       "fill": 1,
       "gridPos": {
         "h": 6,
@@ -722,7 +739,8 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
+      "description": "Target CPU is 60%.  App Engine should add more instances if utilization is frequently above 60%, and drop instances if usually below.",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -765,11 +783,11 @@
       ],
       "thresholds": [
         {
-          "value": 0.6,
           "colorMode": "ok",
-          "op": "gt",
           "fill": false,
           "line": true,
+          "op": "gt",
+          "value": 0.6,
           "yaxis": "left"
         }
       ],
@@ -810,15 +828,14 @@
       "yaxis": {
         "align": false,
         "alignLevel": null
-      },
-      "description": "Target CPU is 60%.  App Engine should add more instances if utilization is frequently above 60%, and drop instances if usually below."
+      }
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -934,7 +951,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -967,6 +984,7 @@
       "targets": [
         {
           "expr": "annotator_Running_Annotation_Requests_Count",
+          "format": "time_series",
           "intervalFactor": 2,
           "metric": "annotator_Running_Annotation_Requests_Count",
           "refId": "A",
@@ -1018,12 +1036,12 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
       "description": "Aggregate annotation rate (per service), and median annotations/CPU-sec.",
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 12,
+        "w": 8,
         "x": 0,
         "y": 26
       },
@@ -1068,7 +1086,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "-avg(rate(annotator_Annotation_Lookups_Total{service=\"annotator\"}[5m]))",
+          "expr": "-avg(rate(annotator_Annotation_Lookups_total{service=\"annotator\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -1078,7 +1096,7 @@
           "step": 20
         },
         {
-          "expr": "avg by (service)(rate(annotator_Annotation_Lookups_Total{service!=\"annotator\"}[5m]))",
+          "expr": "avg by (service)(rate(annotator_Annotation_Lookups_total{service!=\"annotator\"}[5m]))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -1088,8 +1106,9 @@
           "step": 20
         },
         {
-          "expr": "-quantile(0.5, rate(annotator_Annotation_Lookups_Total{service=\"annotator\"}[5m])/rate(process_cpu_seconds_total[5m]))",
+          "expr": "-quantile(0.5, rate(annotator_Annotation_Lookups_total{service=\"annotator\"}[5m])/rate(process_cpu_seconds_total[5m]))",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 2,
           "legendFormat": "Median Annotations/CPU-sec (annotator)",
           "metric": "annotator_Annotation_Lookups_Total",
@@ -1097,7 +1116,7 @@
           "step": 20
         },
         {
-          "expr": "quantile by (service)(0.5, rate(annotator_Annotation_Lookups_Total{service!=\"annotator\"}[5m])/rate(process_cpu_seconds_total[5m]))",
+          "expr": "quantile by (service)(0.5, rate(annotator_Annotation_Lookups_total{service!=\"annotator\"}[5m])/rate(process_cpu_seconds_total[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Median Annotations/CPU-sec ({{service}})",
@@ -1106,6 +1125,7 @@
           "step": 20
         }
       ],
+      "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
       "title": "IP Lookups Per Second",
@@ -1153,15 +1173,121 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$datasource",
+      "editable": false,
+      "error": false,
       "fill": 1,
       "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
+        "h": 6,
+        "w": 8,
+        "x": 8,
         "y": 26
       },
       "id": 13,
+      "isNew": false,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/instance count/",
+          "color": "#64B0C8",
+          "fill": 0,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(instance, service)(time()-process_start_time_seconds{service=~\"annotator.*\"})",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{service}} {{instance}}",
+          "refId": "A",
+          "step": 240
+        },
+        {
+          "expr": "count(process_start_time_seconds{service=~\"annotator.*\"}) by (service)",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{service}} instance count",
+          "refId": "B",
+          "step": 240
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Per Instance Uptime",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": false,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "format": "",
+        "logBase": 0,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "dtdurations",
+          "logBase": 10,
+          "min": 60,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "max": "25",
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 26
+      },
+      "id": 24,
       "legend": {
         "avg": false,
         "current": false,
@@ -1185,7 +1311,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (service)(rate(annotator_Annotation_Requests_Total[5m]))",
+          "expr": "sum by (service)(rate(annotator_Annotation_Requests_total[5m]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{service}}",
@@ -1243,7 +1369,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": null,
+      "datasource": "$datasource",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -1295,7 +1421,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(rate(annotator_Annotation_Lookups_Total[5m]))",
+          "expr": "sum(rate(annotator_Annotation_Lookups_total[5m]))",
+          "format": "time_series",
           "intervalFactor": 2,
           "refId": "A",
           "step": 240
@@ -1323,7 +1450,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": null,
+      "datasource": "$datasource",
       "decimals": null,
       "format": "short",
       "gauge": {
@@ -1376,7 +1503,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(annotator_Annotation_Lookups_Total)",
+          "expr": "sum(annotator_Annotation_Lookups_total)",
+          "format": "time_series",
           "intervalFactor": 2,
           "metric": "annotator_Annotation_Lookups_Total",
           "refId": "A",
@@ -1405,7 +1533,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": null,
+      "datasource": "$datasource",
       "decimals": null,
       "format": "short",
       "gauge": {
@@ -1458,7 +1586,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(annotator_Annotation_Requests_Total)",
+          "expr": "sum(annotator_Annotation_Requests_total)",
+          "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "",
           "metric": "annotator_Annotation_Lookups_Total",
@@ -1488,7 +1617,7 @@
         "rgba(237, 129, 40, 0.89)",
         "rgba(50, 172, 45, 0.97)"
       ],
-      "datasource": null,
+      "datasource": "$datasource",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -1540,7 +1669,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(rate(annotator_Annotation_Requests_Total[5m]))",
+          "expr": "sum(rate(annotator_Annotation_Requests_total[5m]))",
+          "format": "time_series",
           "intervalFactor": 2,
           "refId": "A",
           "step": 240
@@ -1571,8 +1701,8 @@
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
-          "text": "1h",
-          "value": "1h"
+          "text": "10m",
+          "value": "10m"
         },
         "hide": 0,
         "label": "interval",
@@ -1631,17 +1761,33 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "etl-ndt-parser",
-          "value": "etl-ndt-parser"
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
         },
-        "datasource": null,
+        "datasource": "$datasource",
         "hide": 0,
-        "includeAll": false,
-        "label": null,
-        "multi": false,
+        "includeAll": true,
+        "label": "client",
+        "multi": true,
         "name": "service",
         "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "etl-batch-parser",
+            "value": "etl-batch-parser"
+          },
+          {
+            "selected": false,
+            "text": "etl-sidestream-parser",
+            "value": "etl-sidestream-parser"
+          },
           {
             "selected": false,
             "text": "etl-traceroute-parser",
@@ -1649,14 +1795,6 @@
           },
           {
             "selected": false,
-            "text": "etl-ndt-batch-parser",
-            "value": "etl-ndt-batch-parser"
-          },
-          {
-            "text": "etl-sidestream-parser",
-            "value": "etl-sidestream-parser"
-          },
-          {
             "text": "etl-ndt-parser",
             "value": "etl-ndt-parser"
           }
@@ -1670,11 +1808,26 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "current": {
+          "tags": [],
+          "text": "Prometheus (mlab-staging)",
+          "value": "Prometheus (mlab-staging)"
+        },
+        "hide": 0,
+        "label": null,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "/Prometheus.*/",
+        "type": "datasource"
       }
     ]
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {
@@ -1704,5 +1857,6 @@
   },
   "timezone": "browser",
   "title": "Pipeline: Annotation Service",
-  "uid": "000000020"
+  "uid": "LleD7LEmz",
+  "version": 5
 }
