@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:5881",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": false,
@@ -17,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 196,
-  "iteration": 1541778162702,
+  "iteration": 1559144369999,
   "links": [],
   "panels": [
     {
@@ -61,6 +60,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -152,6 +152,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -229,15 +230,13 @@
       "id": 198,
       "interval": null,
       "links": [],
-      "mappingType": 1,
+      "mappingType": 2,
       "mappingTypes": [
         {
-          "$$hashKey": "object:1851",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:1852",
           "name": "range to text",
           "value": 2
         }
@@ -245,6 +244,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -254,6 +254,16 @@
           "from": "null",
           "text": "N/A",
           "to": "null"
+        },
+        {
+          "from": "0",
+          "text": "Off",
+          "to": "0"
+        },
+        {
+          "from": "1",
+          "text": "On",
+          "to": "9999"
         }
       ],
       "sparkline": {
@@ -265,8 +275,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:1524",
-          "expr": "gmx_site_maintenance{site=\"$pod\"}",
+          "expr": "sum(gmx_site_maintenance{site=\"$pod\"}) by (site)",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -279,19 +288,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:1854",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:1855",
           "op": "=",
           "text": "On",
           "value": "1"
         },
         {
-          "$$hashKey": "object:1856",
           "op": "=",
           "text": "Off",
           "value": "0"
@@ -312,7 +318,6 @@
       "repeat": "node",
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -362,6 +367,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -376,7 +382,6 @@
       "repeat": null,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -399,7 +404,6 @@
       ],
       "thresholds": "70,90",
       "title": "Root fs",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -452,6 +456,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -465,7 +470,6 @@
       ],
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -541,6 +545,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -554,7 +559,6 @@
       ],
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -630,6 +634,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -643,7 +648,6 @@
       ],
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -719,6 +723,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -732,7 +737,6 @@
       ],
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -797,12 +801,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -810,6 +812,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -823,7 +826,6 @@
       ],
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -838,7 +840,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "lame_duck_node{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -852,19 +853,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -902,12 +900,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -915,6 +911,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -928,7 +925,6 @@
       ],
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -943,7 +939,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "gmx_machine_maintenance{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -957,19 +952,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -994,10 +986,10 @@
       },
       "id": 4,
       "links": [],
+      "options": {},
       "pageSize": null,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -1075,10 +1067,10 @@
       },
       "id": 2,
       "links": [],
+      "options": {},
       "pageSize": null,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -1156,10 +1148,10 @@
       },
       "id": 63,
       "links": [],
+      "options": {},
       "pageSize": null,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -1242,10 +1234,10 @@
       },
       "id": 64,
       "links": [],
+      "options": {},
       "pageSize": null,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -1323,10 +1315,10 @@
       },
       "id": 5,
       "links": [],
+      "options": {},
       "pageSize": null,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5353",
           "selected": false,
           "text": "mlab1",
           "value": "mlab1"
@@ -1403,11 +1395,10 @@
       "id": 234,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 95,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -1457,6 +1448,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -1469,12 +1461,11 @@
         }
       ],
       "repeat": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 18,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -1497,7 +1488,6 @@
       ],
       "thresholds": "70,90",
       "title": "Root fs",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -1550,6 +1540,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1561,12 +1552,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 7,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -1642,6 +1632,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1653,12 +1644,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 6,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -1734,6 +1724,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1745,12 +1736,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 31,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -1826,6 +1816,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1837,12 +1828,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 46,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -1907,12 +1897,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -1920,6 +1908,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1931,12 +1920,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 232,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -1951,7 +1939,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "lame_duck_node{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -1965,19 +1952,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -2015,12 +1999,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -2028,6 +2010,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2039,12 +2022,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 233,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -2059,7 +2041,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "gmx_machine_maintenance{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -2073,19 +2054,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -2110,13 +2088,13 @@
       },
       "id": 242,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 4,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -2194,13 +2172,13 @@
       },
       "id": 243,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 2,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -2278,13 +2256,13 @@
       },
       "id": 244,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 63,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -2367,13 +2345,13 @@
       },
       "id": 245,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 64,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -2451,13 +2429,13 @@
       },
       "id": 246,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 5,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5354",
           "selected": false,
           "text": "mlab2",
           "value": "mlab2"
@@ -2534,11 +2512,10 @@
       "id": 247,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 95,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -2588,6 +2565,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -2600,12 +2578,11 @@
         }
       ],
       "repeat": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 18,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -2628,7 +2605,6 @@
       ],
       "thresholds": "70,90",
       "title": "Root fs",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -2681,6 +2657,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2692,12 +2669,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 7,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -2773,6 +2749,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2784,12 +2761,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 6,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -2865,6 +2841,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2876,12 +2853,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 31,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -2957,6 +2933,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2968,12 +2945,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 46,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3038,12 +3014,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -3051,6 +3025,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3062,12 +3037,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 232,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3082,7 +3056,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "lame_duck_node{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -3096,19 +3069,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -3146,12 +3116,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -3159,6 +3127,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3170,12 +3139,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 233,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3190,7 +3158,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "gmx_machine_maintenance{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -3204,19 +3171,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -3241,13 +3205,13 @@
       },
       "id": 255,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 4,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3325,13 +3289,13 @@
       },
       "id": 256,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 2,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3409,13 +3373,13 @@
       },
       "id": 257,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 63,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3498,13 +3462,13 @@
       },
       "id": 258,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 64,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3582,13 +3546,13 @@
       },
       "id": 259,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 5,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5355",
           "selected": false,
           "text": "mlab3",
           "value": "mlab3"
@@ -3665,11 +3629,10 @@
       "id": 260,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 95,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -3719,6 +3682,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "80%",
       "prefix": "",
@@ -3731,12 +3695,11 @@
         }
       ],
       "repeat": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 18,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -3759,7 +3722,6 @@
       ],
       "thresholds": "70,90",
       "title": "Root fs",
-      "transparent": false,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -3812,6 +3774,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3823,12 +3786,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 7,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -3904,6 +3866,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -3915,12 +3878,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 6,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -3996,6 +3958,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4007,12 +3970,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 31,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4088,6 +4050,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4099,12 +4062,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 46,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4169,12 +4131,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -4182,6 +4142,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4193,12 +4154,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 232,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4213,7 +4173,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "lame_duck_node{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -4227,19 +4186,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -4277,12 +4233,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:5370",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:5371",
           "name": "range to text",
           "value": 2
         }
@@ -4290,6 +4244,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -4301,12 +4256,11 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 233,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4321,7 +4275,6 @@
       "tableColumn": "",
       "targets": [
         {
-          "$$hashKey": "object:5242",
           "expr": "gmx_machine_maintenance{machine=~\"$node.$pod.*\"}",
           "format": "time_series",
           "instant": true,
@@ -4335,19 +4288,16 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:5373",
           "op": "=",
           "text": "N/A",
           "value": "null"
         },
         {
-          "$$hashKey": "object:5375",
           "op": "=",
           "text": "Off",
           "value": "0"
         },
         {
-          "$$hashKey": "object:5377",
           "op": "=",
           "text": "On",
           "value": "1"
@@ -4372,13 +4322,13 @@
       },
       "id": 268,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 4,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4456,13 +4406,13 @@
       },
       "id": 269,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 2,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4540,13 +4490,13 @@
       },
       "id": 270,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 63,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4629,13 +4579,13 @@
       },
       "id": 271,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 64,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4713,13 +4663,13 @@
       },
       "id": 272,
       "links": [],
+      "options": {},
       "pageSize": null,
-      "repeatIteration": 1541778162702,
+      "repeatIteration": 1559144369999,
       "repeatPanelId": 5,
       "repeatedByRow": true,
       "scopedVars": {
         "node": {
-          "$$hashKey": "object:5356",
           "selected": false,
           "text": "mlab4",
           "value": "mlab4"
@@ -4786,34 +4736,38 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "tags": [],
+          "selected": true,
           "text": "Prometheus (mlab-oti)",
           "value": "Prometheus (mlab-oti)"
         },
         "hide": 0,
+        "includeAll": false,
         "label": "Datasource",
+        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "prometheus",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "type": "datasource"
       },
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "jnb01",
-          "value": "jnb01"
+          "selected": false,
+          "text": "ams08",
+          "value": "ams08"
         },
         "datasource": "$datasource",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Pod",
@@ -4823,6 +4777,7 @@
         "query": "label_values(site)",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
@@ -4833,7 +4788,7 @@
       {
         "allValue": "",
         "current": {
-          "tags": [],
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
@@ -4844,37 +4799,33 @@
         "name": "node",
         "options": [
           {
-            "$$hashKey": "object:5352",
             "selected": true,
             "text": "All",
             "value": "$__all"
           },
           {
-            "$$hashKey": "object:5353",
             "selected": false,
             "text": "mlab1",
             "value": "mlab1"
           },
           {
-            "$$hashKey": "object:5354",
             "selected": false,
             "text": "mlab2",
             "value": "mlab2"
           },
           {
-            "$$hashKey": "object:5355",
             "selected": false,
             "text": "mlab3",
             "value": "mlab3"
           },
           {
-            "$$hashKey": "object:5356",
             "selected": false,
             "text": "mlab4",
             "value": "mlab4"
           }
         ],
         "query": "mlab1,mlab2,mlab3,mlab4",
+        "skipUrlSync": false,
         "type": "custom"
       }
     ]
@@ -4911,5 +4862,5 @@
   "timezone": "",
   "title": "Ops: Pod Overview",
   "uid": "1Q3nWeNik",
-  "version": 93
+  "version": 136
 }
